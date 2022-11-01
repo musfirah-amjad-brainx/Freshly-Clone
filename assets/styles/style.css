@@ -1,0 +1,512 @@
+:root {
+    --main-headings: #000000;
+    --green: #357471;
+    --yellow: #fce94e;
+    --blue: #3176fd;
+    --white: #ffffff;
+    --offwhite: #fffdf7;
+    --grey: #dee2e6;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.h3::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+    color: red;
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Jquery Steps Custom Css Start*/
+.wizard>.steps {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #cacaca;
+}
+
+.wizard>.steps .current a,
+.wizard>.steps .current a:hover,
+.wizard>.steps .current a:active {
+    /* background: #2184be; */
+    color: black;
+    cursor: default;
+}
+
+.wizard>.steps .disabled a,
+.wizard>.steps .disabled a:hover,
+.wizard>.steps .disabled a:active {
+    color: #d1cfcd;
+    cursor: default;
+    background-color: transparent;
+}
+.actions a{
+    color: red!important;
+}
+.wizard>.steps .done a,
+.wizard>.steps .done a:hover,
+.wizard>.steps .done a:active {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.wizard>.content>.body ul {
+    list-style-type: none;
+}
+
+/* Jquery Steps Custom Css End*/
+/* Meal Plans Section Start */
+.section-plans {
+    padding: 50px 0;
+    background-color: white;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.banner-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner-header p {
+    text-align: center;
+    font-size: 0.9rem;
+    width: 40%;
+}
+
+.deals-container .card {
+    border: none;
+    width: 100%;
+    display: inline-block;
+}
+
+.meal-plan-cards {
+    margin: 30px auto;
+    column-gap: 10px;
+    margin: 0 auto;
+}
+
+.meal-plan-cards .card {
+    border: none !important;
+}
+
+.meal-plan-cards p {
+    color: var(--green);
+    font-size: 1.3rem;
+    text-align: center;
+    padding-top: 0;
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container .btn {
+    position: absolute;
+    background-color: var(--yellow);
+    color: var(--green);
+    top: 5%;
+    left: 5%;
+    padding: 0 5px;
+    border-radius: 55px;
+    font-size: 0.80rem;
+    font-weight: 500;
+    display: inline;
+}
+
+.meal-plan-cards img {
+    width: 220px;
+}
+
+.bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bottom-container p {
+    font-size: 0.9rem;
+}
+
+.signUpBtn {
+    background-color: var(--blue) !important;
+    color: var(--white) !important;
+    border-radius: 0 !important;
+    font-size: 1.2rem !important;
+    padding: 10px 18px !important;
+    transition: 0.2s all transform;
+    font-weight: 450 !important;
+}
+
+.signUpBtn:hover {
+    transform: translate(2px);
+}
+
+.delivery-container {
+    height: calc(100vh - 235px);
+}
+
+.cart-footer .next {
+    align-items: center;
+    background-color: var(--blue);
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.33em;
+    text-transform: capitalize;
+    padding: 9px 16px 9px;
+    border-radius: 0;
+    cursor: pointer
+}
+
+.cart-footer .message {
+    font-size: 14px;
+    padding: 10px;
+    color: var(--green);
+    font-weight: bold;
+}
+
+/* Meal Plans Section End */
+
+/* Date Selection Section Start */
+.section-day {
+    background-color: var(--offwhite);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.delivery-dates-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px auto;
+cursor: pointer;
+}
+
+.delivery-dates-container ul {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 500px;
+}
+
+.delivery-dates-container li {
+    list-style-type: none;
+    background-color: var(--white);
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.delivery-dates-container li:hover {
+    transition: 0.6s transform ease-in-out;
+    transform: translateX(17px);
+
+}
+
+.delivery-dates-container .active {
+    border-left: 8px solid var(--blue);
+    background-color: var(--offwhite);
+}
+
+.most-popular {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delivery-dates-container .btn {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 0;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    font-weight: 450;
+    width: 400px;
+    margin: 20px 0;
+}
+
+.delivery-dates-container p {
+    font-size: 0.9rem;
+}
+
+.common-questions-container {
+    padding: 30px 0;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.common-questions-container .accordion-item {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.common-questions-container .accordion-button {
+    background-color: var(--offwhite);
+    font-weight: bold;
+}
+
+.common-questions-container .accordion-button:hover {
+    border: none;
+    color: var(--blue)
+}
+
+/* Date Selection Section End */
+/* Meals Section Start */
+.meals-section {
+    background-color: var(--offwhite);
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden !important;
+}
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 16px;
+    min-height: 52px;
+    background-color: var(--offwhite);
+    border-top: 2px solid #fef9eb;
+    border-bottom: 2px solid #fef9eb;
+}
+
+.header .btn {
+    color: #2a6dff;
+    background-color: #fef9eb;
+    padding: 13px;
+    font-weight: bold;
+}
+
+.meals-container {
+    overflow-y: scroll;
+    height: 1000px;
+}
+
+.meals-container .card {
+    border: 1px solid rgb(224, 223, 223);
+    border-radius: 10px;
+}
+
+.card-bottom .btn {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-weight: 500;
+    color: var(--white);
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--blue);
+    border-radius: 20px;
+    justify-content: space-around;
+}
+
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cart-container {
+    background-color: var(--white);
+    position: sticky;
+    height: 92vh;
+}
+
+.cart-footer {
+    font-weight: 700;
+    padding: 20px 0px;
+    border: 1px solid #ededed;
+    border-radius: 1.2rem 1.2rem 0 0;
+    position: absolute;
+    line-height: 3rem;
+    width: 100%;
+    bottom: 0;
+    cursor: pointer;
+    background-color: var(--white);
+}
+
+/* Meals Section End */
+/* Checkout Section Start */
+.checkout-section {
+    background-color: var(--offwhite);
+}
+
+.checkout-section select {
+    border: 1px solid var(--text-light);
+    border-radius: 0;
+}
+
+.checkout-section form {
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+    border-bottom: 2px solid var(--grey) !important;
+}
+
+.checkout-section .card-body {
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+    border-bottom: 2px solid var(--grey) !important;
+}
+
+.checkout-section .card-body {
+    position: sticky;
+}
+
+.checkout-section input:not([type="checkbox"]),
+.checkout-section select {
+    border: 1px solid black;
+    border-radius: 0;
+}
+
+.checkout-section .checkout-order-summary .list-group-item:first-child,
+.checkout-section .checkout-order-summary .list-group-item:nth-child(2),
+#checkout-section .checkout-order-summary .list-group-item:last-child {
+    font-size: 16px;
+}
+
+.checkout-section .checkout-order-summary .list-group-item {
+    padding: 12px;
+    font-size: 14px;
+}
+
+.checkout-section .next-btn {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 0;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    font-weight: 450;
+    text-align: center;
+    width: 100%;
+}
+
+.checkout-section .list-group-flush {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+}
+
+.checkout-section .list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--main-headings);
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-flush>.list-group-item {
+    border-width: 0 0 1px;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+[role=button] {
+    cursor: pointer;
+}
+
+.checkout-section .list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.order-1 {
+    order: 1;
+}
+
+/* Checkout Section End */
+/* Media Queries */
+@media (max-width:600px) {
+    .section-plans {
+        padding: 10px;
+    }
+    .banner-header p {
+        width:100%;
+    }
+    .bottom-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .signUpBtn {
+        width: 100%;
+        display: block;
+    }
+
+    .card {
+        /* width: 9rem; */
+        border: none !important;
+    }
+
+    .delivery-dates-container ul {
+        width: 320px;
+    }
+
+    .delivery-dates-container .btn {
+        width: 320px;
+    }
+
+    .common-questions-container {
+        width: 100%;
+    }
+
+    .delivery-container {
+        box-shadow: 0px -3px 8px -5px rgb(0 0 0 / 80%);
+        border-top: 1px solid #d3cece;
+        width: calc(100vw - 3px);
+        overflow-y: auto;
+        height: 40vh;
+        z-index: 900;
+        position: absolute;
+        bottom: 155px;
+        background: #fff;
+    }
+
+    .order-summary {
+        padding: 10px;
+    }
+
+    .cart-footer {
+        position: fixed;
+        bottom: 0;
+        height: 160px;
+        padding: 0;
+        padding-top: 10px;
+    }
+}
