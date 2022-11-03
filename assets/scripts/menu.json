@@ -1,0 +1,164 @@
+[
+    {
+        "id":"1",
+        "title":"BBQ Bison Burger*",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"610 Cal",
+        "cost":"12.50",
+        "additional_cost":"1.99",
+        "img": "assets/images/production-meal-image-9e969581-d09c-4617-9b17-d455d23c8952.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-cc14bd01-89d7-4d3d-94c5-4fdd5153f2b4.webp"
+    },
+    {
+        "id":"2",
+        "title":"Homestyle Chicken",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"560 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-e4122aa8-0fe7-4854-b6f5-e27e0c5be918.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-6cadf26d-addc-4674-bfb3-3255cd770ebd.webp"
+    },
+    {
+        "id":"3",
+        "title":"Sausage Baked Penne",
+        "description":"with Sauteed Zucchini & Spinach",
+        "calories":"470 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-f0de55be-d691-4ade-bc26-b4a8aedaa1fe.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-4e5dd437-69eb-4ae8-847b-7ea52f687633.webp"
+    },
+    {
+        "id":"4",
+        "title":"Tricolor Beef Lasagna",
+        "description":"with Brown-Rice & Spinach Pasta Sheets",
+        "calories":"640 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-29e2b6e1-12af-405d-8b33-91e19b2a0fef.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-f01b968d-8550-47b7-a374-b40aac637069.webp"
+    },
+    {
+        "id":"5",
+        "title":"Philly-ish Cheesesteak",
+        "description":"with Seasoned Beef & Masterful Mash",
+        "calories":"540 Cal",
+        "cost":"1.99",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-d5ef4016-ed9b-4aac-93e1-109ae9b9b6ba.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-1c43b01a-2eea-4cf8-aa70-b93f72167dc5.webp"
+    },
+    {
+        "id":"1",
+        "title":"BBQ Bison Burger*",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"610 Cal",
+        "cost":"12.50",
+        "additional_cost":"1.99",
+        "img": "assets/images/production-meal-image-9e969581-d09c-4617-9b17-d455d23c8952.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-cc14bd01-89d7-4d3d-94c5-4fdd5153f2b4.webp"
+    },
+    {
+        "id":"2",
+        "title":"Homestyle Chicken",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"560 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-e4122aa8-0fe7-4854-b6f5-e27e0c5be918.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-6cadf26d-addc-4674-bfb3-3255cd770ebd.webp"
+    },
+    {
+        "id":"3",
+        "title":"Sausage Baked Penne",
+        "description":"with Sauteed Zucchini & Spinach",
+        "calories":"470 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-f0de55be-d691-4ade-bc26-b4a8aedaa1fe.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-4e5dd437-69eb-4ae8-847b-7ea52f687633.webp"
+    },
+    {
+        "id":"4",
+        "title":"Tricolor Beef Lasagna",
+        "description":"with Brown-Rice & Spinach Pasta Sheets",
+        "calories":"640 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-29e2b6e1-12af-405d-8b33-91e19b2a0fef.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-f01b968d-8550-47b7-a374-b40aac637069.webp"
+    },
+    {
+        "id":"5",
+        "title":"Philly-ish Cheesesteak",
+        "description":"with Seasoned Beef & Masterful Mash",
+        "calories":"540 Cal",
+        "cost":"1.99",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-d5ef4016-ed9b-4aac-93e1-109ae9b9b6ba.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-1c43b01a-2eea-4cf8-aa70-b93f72167dc5.webp"
+    },
+    {
+        "id":"1",
+        "title":"BBQ Bison Burger*",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"610 Cal",
+        "cost":"12.50",
+        "additional_cost":"1.99",
+        "img": "assets/images/production-meal-image-9e969581-d09c-4617-9b17-d455d23c8952.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-cc14bd01-89d7-4d3d-94c5-4fdd5153f2b4.webp"
+    },
+    {
+        "id":"2",
+        "title":"Homestyle Chicken",
+        "description":"with Masterful Mac & Cheese",
+        "calories":"560 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-e4122aa8-0fe7-4854-b6f5-e27e0c5be918.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-6cadf26d-addc-4674-bfb3-3255cd770ebd.webp"
+    },
+    {
+        "id":"3",
+        "title":"Sausage Baked Penne",
+        "description":"with Sauteed Zucchini & Spinach",
+        "calories":"470 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-f0de55be-d691-4ade-bc26-b4a8aedaa1fe.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-4e5dd437-69eb-4ae8-847b-7ea52f687633.webp"
+    },
+    {
+        "id":"4",
+        "title":"Tricolor Beef Lasagna",
+        "description":"with Brown-Rice & Spinach Pasta Sheets",
+        "calories":"640 Cal",
+        "cost":"12.50",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-29e2b6e1-12af-405d-8b33-91e19b2a0fef.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-f01b968d-8550-47b7-a374-b40aac637069.webp"
+    },
+    {
+        "id":"5",
+        "title":"Philly-ish Cheesesteak",
+        "description":"with Seasoned Beef & Masterful Mash",
+        "calories":"540 Cal",
+        "cost":"1.99",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-d5ef4016-ed9b-4aac-93e1-109ae9b9b6ba.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-1c43b01a-2eea-4cf8-aa70-b93f72167dc5.webp"
+    },
+    {
+        "id":"5",
+        "title":"Philly-ish Cheesesteak",
+        "description":"with Seasoned Beef & Masterful Mash",
+        "calories":"540 Cal",
+        "cost":"1.99",
+        "additional_cost":"",
+        "img": "assets/images/production-meal-image-d5ef4016-ed9b-4aac-93e1-109ae9b9b6ba.jpg",
+        "cart_img":"assets/images/production-meal-without-background-image-1c43b01a-2eea-4cf8-aa70-b93f72167dc5.webp"
+    }
+
+
+]

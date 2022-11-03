@@ -1,188 +1,317 @@
 window.onload = () => {
-    // -------------------Meal Plans-------------------
 
-    // var elements = document.getElementsByClassName("meals");
+    /* ----------------- Meal Plan Section End-----------------*/
 
-    // var myFunction = function () {
-    //     var card_title = this.getAttribute("id");
-    //     localStorage.setItem("meal_plan", card_title);
-    //     const no_of_meals = localStorage.getItem("meal_plan");
-    //     console.log(no_of_meals);
-    // };
+    var elements = document.getElementsByClassName("meals");
 
-    // for (var i = 0; i < elements.length; i++) {
-    //     elements[i].addEventListener('click', myFunction, false);
-    // }
-
-    // var delivery_dates_elements = document.getElementsByClassName("list_items");
-
-    // var getDeliveryDate = function () {
-    //     var date = this.getAttribute("li");
-    //     console.log(date)
-    //     localStorage.setItem("delivery_date", date);
-    //     const delivery_date = localStorage.getItem("delivery_date");
-    //     console.log(delivery_date);
-    // }
-    // for (var i = 0; i < delivery_dates_elements.length; i++) {
-    //     delivery_dates_elements[i].addEventListener('click', getDeliveryDate, false);
-    // }
-    //add meals to cart
-    const container = document.querySelector('#meals_container')
-    const buttons = container.querySelectorAll('button')
-
-var itemCount=0;
-buttons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    let hex = e.target
-    console.log(hex)
-    var mealItems = document.getElementsByClassName("meals");
-
-    var getMeals = function () {
-        var meal_item = this.getAttribute("id");
-        card_title=(this.querySelector(".card-title").innerHTML);
-        console.log(card_title)
-        card_text=(this.querySelector(".card-img-top")).sr;
-        console.log(card_text)
-        addToCart(card_title,card_text);
+    // function to store meal Id
+    var getMealID = function () {
+        var meal_id = this.getAttribute("id");
+        localStorage.setItem("meal_plan", meal_id);
+        var no_of_meals = localStorage.getItem("meal_plan");
+        console.log(no_of_meals);
+        document.querySelector('#pageSteps > div.actions.clearfix > ul > li:nth-child(2) > a').click();
     };
 
-    for (var i = 0; i < mealItems.length; i++) {
-        mealItems[i].addEventListener('click', getMeals, false);
+    // Add event listener on each meal card
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', getMealID);
+        // elements[i].addEventListener('click', getMealID, false);
     }
-    console.log("hello")
-    // do something with hex
-  })})
 
-  function addToCart(card_title){
-   console.log(card_title)
-//     itemCount= itemCount+1;
-//     console.log(itemCount)
-//     console.log(meal_item);
-    var selectedItem = document.createElement("div");
-    selectedItem.classList.add("cartImg");
-    selectedItem.setAttribute("id",itemCount);
-    var img=document.createAttribute("img");
-    
-   img;
-    var title=document.createElement("div");
-    title.innerText=card_title;
-    var cartItems=document.getElementById("title");
-    // selectedItem.append(img)
-    selectedItem.append(title)
-    cartItems.append(selectedItem);
-    console.log(cartItems);
+    /* ----------------- Meal Plan Section End-----------------*/
 
-  }
-  function verifyInputs(){
-// -------------------Form Validation---------------
-    // getting form inputs
-    // const firstName = document.getElementById("fname");
-    // const lastName = document.getElementById("lname");
-    // const address1 = document.getElementById("address1");
-    // const city = document.getElementById("city");
-    // const contactNumber = document.getElementById("phone-num");
-    // const email = document.getElementById("email");
-    // const btn = document.getElementById("next-button");
+    /* ----------------- Date Section -----------------*/
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    // //adding event listener to call functions for validation
-    // firstName.addEventListener("focusout", validateFirstName)
-    // lastName.addEventListener("focusout", validateLastName)
-    // address1.addEventListener("focusout", validateAddress1)
-    // city.addEventListener("focusout", validateCity)
-    // contactNumber.addEventListener("focusout", validateContactNumber)
-    // email.addEventListener("focusout", validateEmail)
-    // btn.addEventListener("click", validateInput)
+    var curr_date = new Date();
+    var day_info = 8.64e+7;
+    var days_to_monday = 8 - curr_date.getDay();  //Calculate days left to Monday
+    var monday_in_sec = curr_date.getTime() + days_to_monday * day_info;  //Get monday in seconds
+    var next_monday = new Date(monday_in_sec); //Get Date of Monday
 
-    // // function to validate first name
-    // function validateFirstName() {
-    //     let _firstName = firstName.value;
-    //     if (_firstName.length <= 0) {
-    //         document.getElementById("fnameerrorMsg").innerHTML = "Can't be blank";
-    //     }
-    //     else {
-    //         document.getElementById("fnameerrorMsg").innerHTML = " ";
-    //         return true
-    //     }
-    // }
-    // // function to validate last name
-    // function validateLastName() {
-    //     let _lastName = lastName.value;
-    //     if (_lastName.length <= 0) {
-    //         document.getElementById("lnameerrorMsg").innerHTML = "Can't be blank";
-    //     }
-    //     else {
-    //         document.getElementById("lnameerrorMsg").innerHTML = " ";
-    //         return true
-    //     }
-    // }
-    // // function to validate address1
-    // function validateAddress1() {
-    //     let _address1 = address1.value;
-    //     // reg exp to validate address1
-    //     const addressRegEx = /^[a-zA-Z0-9\s,'-]*$/;
-    //     if (_address1.length <= 0 || !(_address1.match(addressRegEx))) {
-    //         document.getElementById("addresserrorMsg").innerHTML = "Can't be blank";
-    //     }
-    //     else {
-    //         document.getElementById("addresserrorMsg").innerHTML = " ";
-    //         return true
+    console.log(next_monday);
+    //Loop to display dates starting from coming Monday
+    for (let i = 0; i < 10; i++) {
 
-    //     }
-    // }
+        // Get Day and Months Name
+        const dayName = days[next_monday.getDay() + i];
+        console.log(dayName)
+        const monthName = months[next_monday.getMonth()]
+        const mm = next_monday.getMonth() + i + 1;
 
-    // // function to validate citys
-    // function validateCity() {
-    //     let _city = city.value;
-    //     // creating array of multiple citys
-    //     if (_city.length <= 0) {
-    //         document.getElementById("cityerrorMsg").innerHTML = "Can't be blank";
-    //     }
-    //     else {
-    //         document.getElementById("cityerrorMsg").innerHTML = " ";
-    //         return true
-    //     }
-    // }
-    // // function to validate contact number
-    // function validateContactNumber() {
-    //     let _contactNumber = contactNumber.value;
-    //     if (_contactNumber.length < 10) {
-    //         document.getElementById("contacterrorMsg").innerHTML = "Is not a valid phone number. Please enter a 10-digit phone number.";
-    //     }
-    //     else {
+        let new_day = `<b>${dayName}</b>` + ", " + monthName + " " + mm
 
-    //         document.getElementById("contacterrorMsg").innerHTML = " ";
-    //         return true
-    //     }
-    // }
-    // // function to validate email
-    // function validateEmail() {
-    //     let _email = email.value;
-    //     // reg exp to validate email
-    //     const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    //     if (_email.length <= 0 || !(_email.match(emailRegEx))) {
-    //         document.getElementById("emailerrorMsg").innerHTML = "Can't be blank";
-    //     }
-    //     else {
-    //         document.getElementById("emailerrorMsg").innerHTML = " ";
-    //         return true
+        // Create Lists to display dates
+        let ul = document.getElementById("date_list");
+        let li = document.createElement("li");
+        li.classList.add("date_list_item")
+        li.innerHTML = new_day;
 
-    //     }
+        // append li to ul
+        ul.append(li);
+
+        // Add event listner when li is clicked
+        li.addEventListener("click", function (e) {
+            selectedDate = li.innerHTML
+
+            //change style of selected li
+            this.style.borderLeft = "5px solid #3176fd"
+            this.style.backgroundColor = "#fffdf7"
+            localStorage.clear();
+            // Storing Date 
+            localStorage.setItem("selectedDate", selectedDate);
+
+            //  Get selected date
+            localStorage.getItem("selectedDate");
+            console.log(localStorage.getItem("selectedDate"))
+            let delivery_date = document.querySelector("#first_delivery_date")
+
+            let first_delivery_date = " ";
+            // displaying date below lists
+            first_delivery_date = `
+                                    <p>First Delivery Date: <span>${localStorage.getItem("selectedDate")}</span></p>
+            `
+            delivery_date.innerHTML = first_delivery_date;
+
+            let displayDate = document.querySelector("#delivery-date");
+
+
+            //displaying date on cart header
+            first_delivery_date =
+                `  <p>My delivery for: <span>${localStorage.getItem("selectedDate")} </span></p>`
+            displayDate.innerHTML = first_delivery_date;
+
+        })
+
+    }
 
     // }
-    // function validateInput() {
-    //     if (validateFirstName() && validateLastName() && validateCity() && validateAddress1() && validateEmail() && validateContactNumber()) {
-    //         alert("successfully submitted!")
-    //         document.getElementById("myForm").reset();
+    /* ----------------- Date Section End-----------------*/
 
-    //     }
-    //     else {
-    //         // else display error
-    //         validateFirstName(); validateLastName(); validateCity(); validateAddress1(); validateEmail(); validateContactNumber();
-    //     }
+    /* ----------------- Meals Cart Section Start-----------------*/
 
-    // }
-  }
-    
-//   -----------------Get Data from page-----------
+    // let menu_template = document.getElementById("menu_template")
+    // console.log(menu_template);
 
+
+    // Fetch Meal Menu
+    fetch("assets/scripts/menu.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (products) {
+            console.log("hello")
+            //Display card content inside template
+            for (let product of products) {
+                var mealContent = document.getElementById("menu_template").content;
+                var copyHTML = document.importNode(mealContent, true);
+                copyHTML.querySelector(".card-img-top").src = product.img;
+                copyHTML.querySelector(".card-title").textContent = product.title;
+                copyHTML.querySelector(".card-text").textContent = product.description;
+                if (product.additional_cost.length > 0) {
+                    copyHTML.querySelector(".additional_cost").textContent = `+$${product.additional_cost}`;
+                }
+                copyHTML.querySelector(".calories").textContent = product.calories;
+                //add product to cart on click
+                copyHTML.querySelector(".addBtn").addEventListener("click", function (e) {
+                    addToCart(product.img, product.title, product.description, product.additional_cost, product.cost, product.cart_img)
+                })
+                document.getElementById("meals_container").appendChild(copyHTML);
+
+            }
+        })
+
+    //initialize itemCount and subtotal
+    var itemCount = 0;
+    var subtotal = 0;
+    let continueBtn = document.querySelectorAll(".continueToCheckout");
+    continueBtn.disabled = true;
+    function addToCart(productImg, title, description, additional_cost, cost, cart_img) {
+
+        //--------- Cart Content template--------------
+        var cartContent = document.getElementById("cart_template").content;
+        var copyHTML = document.importNode(cartContent, true);
+        copyHTML.querySelector(".cart_img").src = cart_img;
+        copyHTML.querySelector(".item_title").textContent = title;
+
+        if (additional_cost.length > 0) {
+            copyHTML.querySelector(".additional_cost").textContent = `+$${additional_cost}`;
+        }
+        // Increment Meals
+        copyHTML.querySelector(".addIcon").addEventListener("click", function (e) {
+            console.log("add button clicked")
+            addToCart(productImg, title, description, additional_cost, cost, cart_img)
+        });
+        // Remove Meals
+        copyHTML.querySelector(".minusIcon").addEventListener("click", function (e) {
+            removeMeal(e, cost, additional_cost, subtotal);
+        });
+        document.getElementById("mealsInCart").appendChild(copyHTML);
+
+        // Display Cart Item Count
+        itemCount = itemCount + 1
+        localStorage.setItem("itemCount", itemCount);
+        let counter = localStorage.getItem("itemCount")
+   
+        document.getElementById("itemCount").innerHTML = counter
+      
+        // ---Display remaining number of meals to be added in cart
+        let total_no_of_meals = localStorage.getItem("meal_plan");
+        let remaining = Number(total_no_of_meals) - Number(itemCount);
+        document.getElementById("remaining_items").innerHTML = remaining;
+
+        //Display total amount
+        subtotal = (Number(subtotal) + Number(cost) + Number(additional_cost)).toFixed(2);
+        localStorage.setItem("subtotal", subtotal);
+        let total = localStorage.getItem("subtotal")
+        document.getElementById("total_amount").innerHTML = total;
+
+        // Display Total Price in Checkout Section
+        document.getElementById("totelItems").innerHTML = itemCount;
+        document.getElementById("priceWithoutShipping").innerHTML = total;
+        totalWithShipping = 9.99 + Number(total)
+        document.getElementById("priceWithShipping").innerHTML = totalWithShipping;
+       
+        finalOrder(title, itemCount, cart_img)
+  
+        if (itemCount == total_no_of_meals) {
+            continueBtn.disabled = false;
+        }
+
+    }
+    function removeMeal(e, cost, additional_cost, subtotal) {
+        var element = e.target;
+        element.parentElement.parentElement.parentElement.parentElement.remove();
+
+        let itemC = localStorage.getItem("itemCount");
+        console.log(itemC)
+        itemC = itemC - 1;
+        console.log(itemC)
+        localStorage.setItem("itemCount", itemCount)
+        subtotal = Number(subtotal) - (Number(cost) + Number(additional_cost));
+        localStorage.setItem("subtotal", subtotal);
+    }
+    function finalOrder(title, itemCount, cart_img) {
+        var cartContent = document.getElementById("checkout_meals").content;
+        var copyHTML = document.importNode(cartContent, true);
+        copyHTML.querySelector(".quantity").src = itemCount;
+        copyHTML.querySelector(".checkoutImg").src = cart_img;
+        copyHTML.querySelector(".checkout_title").textContent = title;
+
+        document.getElementById("my-meals").appendChild(copyHTML);
+    }
+    /* ----------------- Meals Cart Section End-----------------*/
+    function verifyInputs() {
+        // -------------------Form Validation---------------
+        // getting form inputs
+        // const firstName = document.getElementById("fname");
+        // const lastName = document.getElementById("lname");
+        // const address1 = document.getElementById("address1");
+        // const city = document.getElementById("city");
+        // const contactNumber = document.getElementById("phone-num");
+        // const email = document.getElementById("email");
+        // const btn = document.getElementById("next-button");
+
+        // //adding event listener to call functions for validation
+        // firstName.addEventListener("focusout", validateFirstName)
+        // lastName.addEventListener("focusout", validateLastName)
+        // address1.addEventListener("focusout", validateAddress1)
+        // city.addEventListener("focusout", validateCity)
+        // contactNumber.addEventListener("focusout", validateContactNumber)
+        // email.addEventListener("focusout", validateEmail)
+        // btn.addEventListener("click", validateInput)
+
+        // // function to validate first name
+        // function validateFirstName() {
+        //     let _firstName = firstName.value;
+        //     if (_firstName.length <= 0) {
+        //         document.getElementById("fnameerrorMsg").innerHTML = "Can't be blank";
+        //     }
+        //     else {
+        //         document.getElementById("fnameerrorMsg").innerHTML = " ";
+        //         return true
+        //     }
+        // }
+        // // function to validate last name
+        // function validateLastName() {
+        //     let _lastName = lastName.value;
+        //     if (_lastName.length <= 0) {
+        //         document.getElementById("lnameerrorMsg").innerHTML = "Can't be blank";
+        //     }
+        //     else {
+        //         document.getElementById("lnameerrorMsg").innerHTML = " ";
+        //         return true
+        //     }
+        // }
+        // // function to validate address1
+        // function validateAddress1() {
+        //     let _address1 = address1.value;
+        //     // reg exp to validate address1
+        //     const addressRegEx = /^[a-zA-Z0-9\s,'-]*$/;
+        //     if (_address1.length <= 0 || !(_address1.match(addressRegEx))) {
+        //         document.getElementById("addresserrorMsg").innerHTML = "Can't be blank";
+        //     }
+        //     else {
+        //         document.getElementById("addresserrorMsg").innerHTML = " ";
+        //         return true
+
+        //     }
+        // }
+
+        // // function to validate citys
+        // function validateCity() {
+        //     let _city = city.value;
+        //     // creating array of multiple citys
+        //     if (_city.length <= 0) {
+        //         document.getElementById("cityerrorMsg").innerHTML = "Can't be blank";
+        //     }
+        //     else {
+        //         document.getElementById("cityerrorMsg").innerHTML = " ";
+        //         return true
+        //     }
+        // }
+        // // function to validate contact number
+        // function validateContactNumber() {
+        //     let _contactNumber = contactNumber.value;
+        //     if (_contactNumber.length < 10) {
+        //         document.getElementById("contacterrorMsg").innerHTML = "Is not a valid phone number. Please enter a 10-digit phone number.";
+        //     }
+        //     else {
+
+        //         document.getElementById("contacterrorMsg").innerHTML = " ";
+        //         return true
+        //     }
+        // }
+        // // function to validate email
+        // function validateEmail() {
+        //     let _email = email.value;
+        //     // reg exp to validate email
+        //     const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        //     if (_email.length <= 0 || !(_email.match(emailRegEx))) {
+        //         document.getElementById("emailerrorMsg").innerHTML = "Can't be blank";
+        //     }
+        //     else {
+        //         document.getElementById("emailerrorMsg").innerHTML = " ";
+        //         return true
+
+        //     }
+
+        // }
+        // function validateInput() {
+        //     if (validateFirstName() && validateLastName() && validateCity() && validateAddress1() && validateEmail() && validateContactNumber()) {
+        //         alert("successfully submitted!")
+        //         document.getElementById("myForm").reset();
+
+        //     }
+        //     else {
+        //         // else display error
+        //         validateFirstName(); validateLastName(); validateCity(); validateAddress1(); validateEmail(); validateContactNumber();
+        //     }
+
+        // }
+    }
+
+    //   -----------------Get Data from page-----------
 }

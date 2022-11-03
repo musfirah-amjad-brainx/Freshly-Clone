@@ -3,9 +3,11 @@
     --green: #357471;
     --yellow: #fce94e;
     --blue: #3176fd;
+    --dark-blue: #2760d3;
     --white: #ffffff;
     --offwhite: #fffdf7;
     --grey: #dee2e6;
+    --dark-grey: #717171;
 }
 
 * {
@@ -57,9 +59,11 @@ body {
     cursor: default;
     background-color: transparent;
 }
-.actions a{
-    color: red!important;
+
+.actions a {
+    color: red !important;
 }
+
 .wizard>.steps .done a,
 .wizard>.steps .done a:hover,
 .wizard>.steps .done a:active {
@@ -103,6 +107,7 @@ body {
     margin: 30px auto;
     column-gap: 10px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .meal-plan-cards .card {
@@ -162,9 +167,9 @@ body {
     transform: translate(2px);
 }
 
-.delivery-container {
+/* .delivery-container {
     height: calc(100vh - 235px);
-}
+} */
 
 .cart-footer .next {
     align-items: center;
@@ -186,9 +191,9 @@ body {
     font-weight: bold;
 }
 
-/* Meal Plans Section End */
+/* -------------------Meal Plans Section End------------------- */
 
-/* Date Selection Section Start */
+/* -----------------Date Selection Section Start -----------------*/
 .section-day {
     background-color: var(--offwhite);
     margin-right: auto;
@@ -201,7 +206,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 10px auto;
-cursor: pointer;
+    cursor: pointer;
 }
 
 .delivery-dates-container ul {
@@ -211,20 +216,20 @@ cursor: pointer;
     width: 500px;
 }
 
-.delivery-dates-container li {
+.date_list_item {
     list-style-type: none;
     background-color: var(--white);
     border: 1px solid black;
     padding: 15px;
 }
 
-.delivery-dates-container li:hover {
+.date_list_item:hover {
     transition: 0.6s transform ease-in-out;
     transform: translateX(17px);
 
 }
 
-.delivery-dates-container .active {
+.date_list_item.active {
     border-left: 8px solid var(--blue);
     background-color: var(--offwhite);
 }
@@ -250,6 +255,16 @@ cursor: pointer;
     font-size: 0.9rem;
 }
 
+#next_btn:hover {
+    color: var(--white);
+    background-color: var(--dark-blue);
+}
+
+#addBtn:hover {
+    color: var(--white);
+    background-color: var(--dark-blue);
+}
+
 .common-questions-container {
     padding: 30px 0;
     width: 60%;
@@ -271,8 +286,8 @@ cursor: pointer;
     color: var(--blue)
 }
 
-/* Date Selection Section End */
-/* Meals Section Start */
+/* -----------------------------Date Selection Section End----------------------------- */
+/* -----------------------------Meals Section Start -----------------------------*/
 .meals-section {
     background-color: var(--offwhite);
     width: 100%;
@@ -305,9 +320,30 @@ cursor: pointer;
     height: 1000px;
 }
 
+.card-title:hover {
+    color: #357471;
+    cursor: pointer
+}
+
 .meals-container .card {
     border: 1px solid rgb(224, 223, 223);
     border-radius: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: #888888;
+}
+
+.calories {
+    color: #357471 !important;
+}
+
+.additional_cost {
+    color: #357471 !important;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .card-bottom .btn {
@@ -327,13 +363,12 @@ cursor: pointer;
 .card-bottom {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .cart-container {
     background-color: var(--white);
     position: sticky;
-    height: 92vh;
 }
 
 .cart-footer {
@@ -347,6 +382,51 @@ cursor: pointer;
     bottom: 0;
     cursor: pointer;
     background-color: var(--white);
+}
+
+.meals_cart {
+    padding: 40px;
+}
+
+.meals_cart:hover {
+    background-color: var(--offwhite);
+}
+
+.cart_img {
+    width: 25%;
+    height: 25%;
+}
+
+.cart_buttons {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    margin-top: -60px;
+}
+
+.addIcon {
+    color: var(--blue);
+    padding: 5px 10px;
+}
+
+.minusIcon {
+    color: var(--dark-grey);
+    padding: 5px 10px;
+}
+
+.addIcon:hover,
+.minusIcon:hover {
+    background-color: var(--grey);
+}
+
+.meals-section #next_btn {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 0;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    font-weight: 450;
+    width: 100%;
 }
 
 /* Meals Section End */
@@ -450,15 +530,26 @@ cursor: pointer;
     order: 1;
 }
 
+.total {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.totalAmount {
+    font-weight: bold;
+}
+
 /* Checkout Section End */
 /* Media Queries */
 @media (max-width:600px) {
     .section-plans {
         padding: 10px;
     }
+
     .banner-header p {
-        width:100%;
+        width: 100%;
     }
+
     .bottom-container {
         width: 100%;
         text-align: center;
@@ -489,13 +580,12 @@ cursor: pointer;
     .delivery-container {
         box-shadow: 0px -3px 8px -5px rgb(0 0 0 / 80%);
         border-top: 1px solid #d3cece;
-        width: calc(100vw - 3px);
+        width: calc(100vw - 20px);
         overflow-y: auto;
-        height: 40vh;
-        z-index: 900;
-        position: absolute;
+        z-index: 500;
         bottom: 155px;
         background: #fff;
+        margin: auto;
     }
 
     .order-summary {
@@ -503,10 +593,15 @@ cursor: pointer;
     }
 
     .cart-footer {
-        position: fixed;
+        font-weight: 700;
+        padding: 20px 0px;
+        border: 1px solid #ededed;
+        border-radius: 1.2rem 1.2rem 0 0;
+        position: absolute;
+        line-height: 3rem;
+        width: 100%;
         bottom: 0;
-        height: 160px;
-        padding: 0;
-        padding-top: 10px;
+        cursor: pointer;
+        background-color: v
     }
 }
