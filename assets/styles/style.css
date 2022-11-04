@@ -345,7 +345,9 @@ body {
     font-weight: bold;
     font-size: 20px;
 }
-
+#cart_items:hover{
+background-color: var(--offwhite);
+}
 .card-bottom .btn {
     display: flex;
     align-items: center;
@@ -412,11 +414,6 @@ body {
 .minusIcon {
     color: var(--dark-grey);
     padding: 5px 10px;
-}
-
-.addIcon:hover,
-.minusIcon:hover {
-    background-color: var(--grey);
 }
 
 .meals-section #next_btn {
@@ -578,14 +575,15 @@ body {
     }
 
     .delivery-container {
-        box-shadow: 0px -3px 8px -5px rgb(0 0 0 / 80%);
+        /* box-shadow: 0px -3px 8px -5px rgb(0 0 0 / 80%);
         border-top: 1px solid #d3cece;
         width: calc(100vw - 20px);
         overflow-y: auto;
         z-index: 500;
         bottom: 155px;
         background: #fff;
-        margin: auto;
+        margin: auto; */
+        display: none;
     }
 
     .order-summary {

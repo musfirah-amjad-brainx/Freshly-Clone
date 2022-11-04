@@ -337,7 +337,7 @@
                         <div class="step-footer">
                             <button class="btn" id="next_btn" class="continueToCheckout">Add <span id="remaining_items"></span> to continue</button>
                         </div>
-                        <div class="message green-text text-center">Please add total <span id="remaining_items"></span>  items to continue</div>
+                        <div class="message green-text text-center">The more you add, the more you'll save!</div>
                     </div>
                  
                 </div>
@@ -491,10 +491,10 @@
                                 <h3 class="mb-0 d-none d-md-block pt-2 mb-4">Order Summary</h3>
                                 <ul class="list-group-flush list-group px-2 card-body">
                                     <li class="px-0 py-1 border-0 list-group-item"><button type="button"
-                                            class="pl-0 btn btn-link"><u>+ Add Promo
+                                            class="pl-0 btn btn-link " id="addPromo"><u>+ Add Promo
                                                 Code</u></button></li>
                                     <li class="px-0 py-1 border-0 list-group-item"><button type="button"
-                                            class="pl-0 btn btn-link"><u>+ Redeem Gift
+                                            class="pl-0 btn btn-link " id="addGiftCard"><u>+ Redeem Gift
                                                 Card</u></button></li>
                                     <li class="px-0 py-2 list-group-item">
                                         <div class="row">
@@ -535,21 +535,23 @@
                                         </li>
                                     </ul>
                                 </ul>
-                                <div class="pt-4 my-meals">
+                                <div class="pt-4">
                                     <h3>My Meals</h3>
+                                    <div id="my_meals"></div>
+                              
                                 </div>
 
-                                <template id="checkout_meals">
-                                    <ul class="checkout_meals">
-                                        <li>
-                                            <div>x<span class="quantity"></span><span class="checkoutImg"></span><span class="checkout_title"></span></div>
-                                        </li>
-                                    </ul>
-                                </template>
+                               
                             </div>
 
                         </div>
-
+                        <template id="checkout_meals">
+                            <ul class="checkout_meals_list">
+                                <li>
+                                    <div>x<span class="quantity"></span><span class="checkoutImg"></span><span class="checkout_title"></span></div>
+                                </li>
+                            </ul>
+                        </template>
                     </div>
 
                 </div>
