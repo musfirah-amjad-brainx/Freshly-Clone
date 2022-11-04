@@ -209,7 +209,7 @@ window.onload = () => {
 
     /*-----------------Checkout Section Start-------------*/
     addPromoBtn=document.getElementById("addPromo");
-    addPromoBtn.addEventListener("click",function(e){
+    addPromoBtn.addEventListener("click",function(){
         var NewInputBox = document.createElement('div');
 
     // Then add the content (a new input box) of the element.
@@ -217,7 +217,7 @@ window.onload = () => {
 
     // Finally put it where it is supposed to appear.
 	addPromoBtn.appendChild(NewInputBox);
-    })
+    }, {once : true})
 
     /* ----------------- Form Validation Section start-----------------*/
     // getting form inputs
