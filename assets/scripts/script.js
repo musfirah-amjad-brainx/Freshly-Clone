@@ -1,4 +1,15 @@
 window.onload = () => {
+    // $('#pageSteps').steps({
+    //   stepSelector: '.step-steps > li',
+    //   contentSelector: '.step-content > .step-tab-panel',
+    //   footerSelector: '.step-footer',
+    //   buttonSelector: 'button',
+    //   activeClass: 'active',
+    //   doneClass: 'done',
+    //   errorClass: 'error'
+    // });
+//     var mySteps = $('#pageSteps').steps();
+// steps_api = steps.data('plugin_Steps');
 
     /* ----------------- Meal Plan Section End-----------------*/
 
@@ -11,6 +22,7 @@ window.onload = () => {
         var no_of_meals = localStorage.getItem("meal_plan");
         console.log(no_of_meals);
         document.querySelector('#pageSteps > div.actions.clearfix > ul > li:nth-child(2) > a').click();
+        steps_api.next();
     };
 
     // Add event listener on each meal card
@@ -208,16 +220,19 @@ window.onload = () => {
 
 
     /*-----------------Checkout Section Start-------------*/
-    addPromoBtn=document.getElementById("addPromo");
-    addPromoBtn.addEventListener("click",function(){
-        var NewInputBox = document.createElement('div');
+    addPromoBtn = document.getElementById("addPromo");
+    addPromoBtn.addEventListener("click", function () {
+        let NewInputBox = document.createElement("div");
+        let newBtn=document.createElement("btn");
 
-    // Then add the content (a new input box) of the element.
-	NewInputBox.innerHTML = "<input type='text' id='newInputBox' class='form-control'> ";
 
-    // Finally put it where it is supposed to appear.
-	addPromoBtn.appendChild(NewInputBox);
-    }, {once : true})
+        // Then add the content (a new input box) of the element.
+        NewInputBox.innerHTML = "<input type='text' id='newInputBox' class='form-control'> ";
+        newBtn.innerHTML=`<button class="btn" id="apply-button">Apply</button>`
+
+        // Finally put it where it is supposed to appear.
+        addPromoBtn.appendChild(NewInputBox,newBtn);
+    }, { once: true })
 
     /* ----------------- Form Validation Section start-----------------*/
     // getting form inputs
