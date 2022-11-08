@@ -1,46 +1,28 @@
 window.onload = () => {
-    // $('#pageSteps').steps({
-    //   stepSelector: '.step-steps > li',
-    //   contentSelector: '.step-content > .step-tab-panel',
-    //   footerSelector: '.step-footer',
-    //   buttonSelector: 'button',
-    //   activeClass: 'active',
-    //   doneClass: 'done',
-    //   errorClass: 'error'
-    // });
-//     var mySteps = $('#pageSteps').steps();
-// steps_api = steps.data('plugin_Steps');
-
     /* ----------------- Meal Plan Section End-----------------*/
-
     var elements = document.getElementsByClassName("meals");
 
     // function to store meal Id
-    var getMealID = function () {
-        var meal_id = this.getAttribute("id");
+    function getMealID() {
+        let meal_id = this.getAttribute("id");
         localStorage.setItem("meal_plan", meal_id);
-        var no_of_meals = localStorage.getItem("meal_plan");
-        console.log(no_of_meals);
-        document.querySelector('#pageSteps > div.actions.clearfix > ul > li:nth-child(2) > a').click();
-        steps_api.next();
     };
 
     // Add event listener on each meal card
-    for (var i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', getMealID);
     }
-
     /* ----------------- Meal Plan Section End-----------------*/
 
     /* ----------------- Date Section Start-----------------*/
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    var curr_date = new Date();
-    var day_info = 8.64e+7;
-    var days_to_monday = 8 - curr_date.getDay();  //Calculate days left to Monday
-    var monday_in_sec = curr_date.getTime() + days_to_monday * day_info;  //Get monday in seconds
-    var next_monday = new Date(monday_in_sec); //Get Date of Monday
+    let curr_date = new Date();
+    let day_info = 8.64e+7;
+    let days_to_monday = 8 - curr_date.getDay();  //Calculate days left to Monday
+    let monday_in_sec = curr_date.getTime() + days_to_monday * day_info;  //Get monday in seconds
+    let next_monday = new Date(monday_in_sec); //Get Date of Monday
 
     console.log(next_monday);
     //Loop to display dates starting from coming Monday
@@ -70,7 +52,6 @@ window.onload = () => {
             //change style of selected li
             this.style.borderLeft = "5px solid #3176fd"
             this.style.backgroundColor = "#fffdf7"
-            localStorage.clear();
             // Storing Date 
             localStorage.setItem("selectedDate", selectedDate);
 
@@ -130,13 +111,11 @@ window.onload = () => {
     //initialize itemCount and subtotal
     var itemCount = 0;
     var subtotal = 0;
-    var continueBtn = document.querySelectorAll(".continueToCheckout");
-    continueBtn.disabled = true;
+    document.getElementsByClassName('.continueToCheckout').disabled = true;
     function addToCart(productImg, title, description, additional_cost, cost, cart_img) {
-
         //--------- Cart Content template--------------
-        var cartContent = document.getElementById("cart_template").content;
-        var copyHTML = document.importNode(cartContent, true);
+        let cartContent = document.getElementById("cart_template").content;
+        let copyHTML = document.importNode(cartContent, true);
         copyHTML.querySelector(".cart_img").src = cart_img;
         copyHTML.querySelector(".item_title").textContent = title;
 
@@ -156,29 +135,35 @@ window.onload = () => {
 
         // Display Cart Item Count
         displayItemCount();
+        
         // Display Subtotal
         displaySubTotal(cost, additional_cost);
+        
         // Display Final Order Details on Checkout
-        finalOrder(title, itemCount, cart_img)
+        finalOrder(title, cart_img)
     }
 
     function removeMeal(e, cost, additional_cost, subtotal) {
-        console.log("Hello from remove Func")
-        var element = e.target;
+        let element = e.target;
         element.parentElement.parentElement.parentElement.parentElement.remove();
 
         let itemC = localStorage.getItem("itemCount");
-        console.log(itemC)
+        let totalAmount=localStorage.getItem("subtotal");
         itemC = itemC - 1;
-        console.log(itemC)
-        localStorage.setItem("itemCount", itemCount)
-        subtotal = Number(subtotal) - (Number(cost) + Number(additional_cost));
-        localStorage.setItem("subtotal", subtotal);
-    }
-    function finalOrder(title, itemCount, cart_img) {
-        var cartContent = document.getElementById("checkout_meals").content;
-        var copyHTML = document.importNode(cartContent, true);
-        copyHTML.querySelector(".quantity").textContent = itemCount;
+        totalAmount = Number(subtotal) - (Number(cost) + Number(additional_cost));
+
+        localStorage.setItem("subtotal", totalAmount);
+        document.getElementById("total_amount").innerHTML=(localStorage.getItem("subtotal"));
+
+
+        localStorage.setItem("itemCount", itemC);
+        document.getElementById("itemCount").innerHTML = (localStorage.getItem("itemCount"))   
+        document.getElementsByClassName("total_amount").innerHTML=totalAmount;
+     }
+    // order summary to be displaced in checkout section
+    function finalOrder(title, cart_img) {
+        let cartContent = document.getElementById("checkout_meals").content;
+        let copyHTML = document.importNode(cartContent, true);
         copyHTML.querySelector(".checkoutImg").src = cart_img;
         copyHTML.querySelector(".checkout_title").textContent = title;
 
@@ -194,10 +179,12 @@ window.onload = () => {
         // ---Display remaining number of meals to be added in cart
         total_no_of_meals = localStorage.getItem("meal_plan");
         let remaining = Number(total_no_of_meals) - Number(itemCount);
-        document.getElementById("remaining_items").innerHTML = remaining;
-
+        document.getElementById("remaining_items").innerHTML = `Add ${remaining} to continue`;
+        
+       
         if (itemCount == total_no_of_meals) {
-            continueBtn.disabled = false;
+            document.getElementById("remaining_items").innerHTML=`Next`;
+            document.querySelector('#continueToCheckout').disabled = false;
         }
         return itemCount;
     }
@@ -208,10 +195,12 @@ window.onload = () => {
         localStorage.setItem("subtotal", subtotal);
         let total = localStorage.getItem("subtotal")
         document.getElementById("total_amount").innerHTML = total;
+        document.getElementById("subtotalSummary").innerHTML = total;
 
         // Display Total Price in Checkout Section
         document.getElementById("totelItems").innerHTML = itemCount;
         document.getElementById("priceWithoutShipping").innerHTML = total;
+   
         totalWithShipping = 9.99 + Number(total)
         document.getElementById("priceWithShipping").innerHTML = totalWithShipping;
     }
@@ -220,20 +209,41 @@ window.onload = () => {
 
 
     /*-----------------Checkout Section Start-------------*/
-    addPromoBtn = document.getElementById("addPromo");
+
+    //Add Promo code
+    let addPromoBtn = document.getElementById("promoLink");
+    let promoTextField=document.getElementById("addPromo");
     addPromoBtn.addEventListener("click", function () {
-        let NewInputBox = document.createElement("div");
-        let newBtn=document.createElement("btn");
+        addPromoBtn.style.display="none";
+        promoTextField.style.display="block";
+        promoTextField.addEventListener("keypress", (e) => {
+            if (e.target.value != "" && e.key === "Enter") {
+                promoTextField.style.display="none";
+                addPromoBtn.style.display="block";
+                addPromo();
+            }
+        })
+    })
 
-
-        // Then add the content (a new input box) of the element.
-        NewInputBox.innerHTML = "<input type='text' id='newInputBox' class='form-control'> ";
-        newBtn.innerHTML=`<button class="btn" id="apply-button">Apply</button>`
-
-        // Finally put it where it is supposed to appear.
-        addPromoBtn.appendChild(NewInputBox,newBtn);
+    // Add Gift Card
+    let addGiftCard = document.getElementById("giftCardLink");
+    let giftCardTextField=document.getElementById("addGiftCard");
+    addGiftCard.addEventListener("click", function () {
+        addGiftCard.style.display="none";
+        giftCardTextField.style.display="block";
+        giftCardTextField.addEventListener("keypress", (e) => {
+            if (e.target.value != "" && e.key === "Enter") {
+                giftCardTextField.style.display="none";
+                addGiftCard.style.display="block";
+                addPromo();
+            }
+        })
     }, { once: true })
 
+
+    function addPromo(){
+console.log("Promo Added")
+    }
     /* ----------------- Form Validation Section start-----------------*/
     // getting form inputs
     const firstName = document.getElementById("fname");
@@ -242,7 +252,7 @@ window.onload = () => {
     const city = document.getElementById("city");
     const contactNumber = document.getElementById("phone-num");
     const email = document.getElementById("email");
-    const btn = document.getElementById("next-button");
+    const btn = document.querySelector("#submit_btn");
 
     //adding event listener to call functions for validation
     firstName.addEventListener("focusout", validateFirstName)
@@ -329,6 +339,8 @@ window.onload = () => {
 
     }
     function validateInput() {
+        event.preventDefault()
+        console.log("inside func")
         if (validateFirstName() && validateLastName() && validateCity() && validateAddress1() && validateEmail() && validateContactNumber()) {
             alert("successfully submitted!")
             document.getElementById("myForm").reset();
