@@ -34,7 +34,7 @@ body {
 ul{
     padding: 0;
 }
-/* Jquery Steps Custom Css Start*/
+/*---------------- Jquery Steps Custom Css Start----------------*/
 .wizard>.steps {
     position: relative;
     display: block;
@@ -49,7 +49,6 @@ ul{
 .wizard>.steps .current a,
 .wizard>.steps .current a:hover,
 .wizard>.steps .current a:active {
-    /* background: #2184be; */
     color: black;
     cursor: default;
 }
@@ -82,13 +81,12 @@ ul{
 }
 .step-app li {
    cursor: pointer;
-   padding:10px;
 }
 .step-app li:active {
     color: var(--blue);
  }
-/* Jquery Steps Custom Css End*/
-/* Meal Plans Section Start */
+/*------------------ Jquery Steps Custom Css End------------------*/
+/*------------------ Meal Plans Section Start ------------------*/
 .section-plans {
     padding: 50px 0;
     background-color: white;
@@ -178,10 +176,6 @@ ul{
 .signUpBtn:hover {
     transform: translate(2px);
 }
-
-/* .delivery-container {
-    height: calc(100vh - 235px);
-} */
 
 .cart-footer .next {
     align-items: center;
@@ -297,8 +291,11 @@ ul{
     border: none;
     color: var(--blue)
 }
-
-/* -----------------------------Date Selection Section End----------------------------- */
+.date_list_item .active{
+    border-left: 5px solid #3176fd;
+    background-color:"#fffdf7";
+}
+/* -----------------------------Date Selection Section End-----------------------*/
 /* -----------------------------Meals Section Start -----------------------------*/
 .meals-section {
     background-color: var(--offwhite);
@@ -355,7 +352,7 @@ ul{
 .additional_cost {
     color: #357471 !important;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 17px;
 }
 #cart_items:hover{
 background-color: var(--offwhite);
@@ -414,27 +411,29 @@ background-color: var(--offwhite);
 
 .cart_img {
     width: 25%;
-    height: 25%;
 }
-
-.cart_buttons {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    margin-top: -60px;
+.checkoutMealImg{
+    width: 20%;
+    padding-right:10px;
 }
-
 .addIcon {
     color: var(--blue);
-    padding: 5px 10px;
+    padding-top:5px;
 }
 
 .minusIcon {
     color: var(--dark-grey);
-    padding: 5px 10px;
+    padding-top:20px;
 }
-
-.meals-section #next_btn {
+.summary-table{
+    display: flex;
+    flex-direction: column;
+}
+.summary-list{
+    display: flex;
+    justify-content: space-between;
+}
+#moveToCheckout{
     background-color: var(--blue);
     color: var(--white);
     border-radius: 0;
@@ -443,13 +442,13 @@ background-color: var(--offwhite);
     font-weight: 450;
     width: 100%;
 }
-.summary-table{
+#cart_items{
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
-/* Meals Section End */
-/* Checkout Section Start */
+/*----------------------- Meals Section End -----------------------*/
+
+/*--------------------- Checkout Section Start ---------------------*/
 .checkout-section {
     background-color: var(--offwhite);
 }
@@ -571,8 +570,8 @@ background-color: var(--offwhite);
 .checkout_meals_list{
     margin:0
 }
-/* Checkout Section End */
-/* Media Queries */
+/*----------------------- Checkout Section End -----------------------*/
+/*----------------------- Media Queries -----------------------*/
 @media (max-width:600px) {
     .section-plans {
         padding: 10px;
@@ -610,14 +609,6 @@ background-color: var(--offwhite);
     }
 
     .delivery-container {
-        /* box-shadow: 0px -3px 8px -5px rgb(0 0 0 / 80%);
-        border-top: 1px solid #d3cece;
-        width: calc(100vw - 20px);
-        overflow-y: auto;
-        z-index: 500;
-        bottom: 155px;
-        background: #fff;
-        margin: auto; */
         display: none;
     }
 
@@ -635,6 +626,5 @@ background-color: var(--offwhite);
         width: 100%;
         bottom: 0;
         cursor: pointer;
-        background-color: v
     }
 }
