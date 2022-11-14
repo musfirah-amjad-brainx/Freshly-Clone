@@ -47,7 +47,11 @@ window.onload = () => {
         // Add event listner when li is clicked
         li.addEventListener("click", function (e) {
             selectedDate = li.innerHTML
-           e.target.classList.add("active")
+            activeDate = document.getElementsByClassName("date_list_item");
+            for (i = 0; i < activeDate.length; i++) {
+                activeDate[i].className = activeDate[i].className.replace(" active", "");
+            }
+            e.currentTarget.className += " active";
       
             // Storing Date 
             localStorage.setItem("selectedDate", selectedDate);
