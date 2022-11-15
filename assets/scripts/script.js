@@ -157,8 +157,7 @@ window.onload = () => {
         nextButton();
         // update summary in checkout
         updatCheckoutSummary()
-        //display meals in checkout section
-        displayMeals();
+  
     }
     function removeFromCart(e, id, cost, additionalCost) {
         itemcount--;
@@ -182,8 +181,7 @@ window.onload = () => {
         nextButton();
         // update summary in checkout
         updatCheckoutSummary()
-        //display meals in checkout section
-        displayMeals();
+
     }
     //Display order summary in cart section
     function addOrderSummary() {
@@ -227,10 +225,13 @@ window.onload = () => {
     // move to next checkout section
     function nextButton() {
         if (itemCount === Number(localStorage.getItem("meal_plan"))) {
-            document.querySelector("#moveToCheckout").removeAttribute("disabled");
+            document.querySelector("#moveToCheckout").disabled=false;
+                  //display meals in checkout section
         } else {
             document.querySelector("#moveToCheckout").disabled = true;
         }
+              //display meals in checkout section
+              displayMeals();
     }
     // update and display summary in checkout
     function updatCheckoutSummary(){
